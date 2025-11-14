@@ -150,7 +150,7 @@ button:hover {
     background-image: linear-gradient(to bottom,
             rgba(11, 29, 38, 0),
             #0B1D26),
-        url('../assets/portada.jpg');
+        url('../assets/portada.webp');
 
 
     position: relative;
@@ -495,7 +495,7 @@ button:hover {
     margin: 3rem 2rem;
 
     /* Imagen de fondo */
-    background-image: url('../assets/image.jpg');
+    background-image: url('../assets/image.webp');
     background-size: cover;
     /* cubre toda la sección */
     background-position: center;
