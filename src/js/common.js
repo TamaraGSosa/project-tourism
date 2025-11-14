@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const isIndex = window.location.pathname === '/index.html' || window.location.pathname === '/';
-    const navLinks = isIndex ?
-        `<a href="src/pages/tips.html">Tips</a>
-        <a href="src/pages/acerca.html">Acerca de</a>
-        <a href="src/pages/destinos.html">Destinos</a>
-        <a href="src/pages/tours.html">Tours</a>
-       `
-        :
-        `<a href="tips.html">Tips</a>
-        <a href="acerca.html">Acerca de</a>
-        <a href="destinos.html">Destinos</a>
-        <a href="tours.html">Tours</a>
-        `;
 
-    const logoHref = isIndex ? '/' : '/';
+    // Prefijo obligatorio para GitHub Pages
+    const base = "/project-tourism/";
+
+    const isIndex =
+        window.location.pathname === base ||
+        window.location.pathname === base + "index.html";
+
+    const navLinks = `
+        <a href="${base}src/pages/tips.html">Tips</a>
+        <a href="${base}src/pages/acerca.html">Acerca de</a>
+        <a href="${base}src/pages/destinos.html">Destinos</a>
+        <a href="${base}src/pages/tours.html">Tours</a>
+    `;
+
     const headerHTML = `
 <header>
-    <a href="${logoHref}" class="logo">YENDO SALTA</a>
+    <a href="${base}" class="logo">YENDO SALTA</a>
     <nav class="nav-links">
         ${navLinks}
     </nav>
@@ -24,15 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 </header>
 `;
 
-    const footerLinks = isIndex ?
-        `<a href="src/pages/preguntas.html">Preguntas Frecuentes</a>
-        <a href="src/pages/condiciones_privacidad.html">Condiciones y privacidad</a>
-        <a href="src/pages/emergencias.html">Números de Emergencias</a>`
-        :
-        `<a href="preguntas.html">Preguntas Frecuentes</a>
-        <a href="condiciones_privacidad.html">Condiciones y privacidad</a>
-      
-        <a href="emergencias.html">Números de Emergencias</a>`;
+    const footerLinks = `
+        <a href="${base}src/pages/preguntas.html">Preguntas Frecuentes</a>
+        <a href="${base}src/pages/condiciones_privacidad.html">Condiciones y privacidad</a>
+        <a href="${base}src/pages/emergencias.html">Números de Emergencias</a>
+    `;
 
     const floatingButtonHTML = `
 <div class="floating-button">
@@ -59,11 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const floatingBtn = document.getElementById('floating-btn');
     floatingBtn.addEventListener('click', () => {
-        if (isIndex) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            window.location.href = '/';
-        }
+        window.location.href = base;
     });
 
     const hamburger = document.querySelector('.hamburger');
