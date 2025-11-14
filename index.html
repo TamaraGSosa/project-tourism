@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio - Turismo Argentino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/search.css">
 </head>
+
 <body>
-    <h1>Project Nuevo</h1>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>CONOCE SALTA</h2>
+            <p>Buscá los mejores lugares para pasear, desde cerros hasta campings, y viví experiencias inolvidables.</p>
+            <form class="search-form">
+                <input type="text" placeholder="Buscar destinos en Salta..." name="search" id="search-input">
+                <button type="submit"><i class="fas fa-search"></i> Buscar</button>
+                <div id="search-results" class="search-results"></div>
+            </form>
+        </div>
+    </section>
+
+    <main>
+        <section class="tarjetas">
+            <div class="tarjeta">
+                <i class="fas fa-user-friends fa-3x"></i>
+                <h3>3000+ Lugares</h3>
+                <p>Disfrutar explorar y conocer salta</p>
+            </div>
+            <div class="tarjeta">
+                <i class="fas fa-map-marker-alt fa-3x"></i>
+                <h3>50+ Experencias</h3>
+                <p>Vivi todo lo que te ofrece salta</p>
+            </div>
+            <div class="tarjeta">
+                <i class="fas fa-info-circle fa-3x"></i>
+                <h3>24/7 Información</h3>
+                <p>Tips y recomendaciones par aplanificar tu viaje</p>
+            </div>
+        </section>
+
+        <section class="destacados">
+
+            <a href="src/pages/detalle.html?id=1" class="destacado">
+                <img src="src/assets/image.jpg" alt="Cerro Uritorco">
+                <div class="overlay">
+                    <h3>Cerro Uritorco</h3>
+                </div>
+            </a>
+            <a href="src/pages/detalle.html?id=2" class="destacado">
+                <img src="src/assets/IMG.png" alt="Cafayate">
+                <div class="overlay">
+                    <h3>Cafayate</h3>
+                </div>
+            </a>
+            <a href="src/pages/detalle.html?id=3" class="destacado">
+                <img src="src/assets/IMG2.png" alt="Camping Los Cardones">
+                <div class="overlay">
+                    <h3>Camping Los Cardones</h3>
+                </div>
+            </a>
+        </section>
+        <section class="lugares">
+            <div class="contenido-texto">
+                <h2>Lugares que te esperan para vivir experiencias únicas</h2>
+                <p>
+                    Cada lugar guarda una historia, una aventura y una emoción distinta.
+                    Aquí vas a encontrar experiencias únicas, paisajes inolvidables y
+                    propuestas pensadas para que tu próximo viaje sea especial.
+                </p>
+            </div>
+            <div class="contenido-videos">
+                <video controls>
+                    <source src="src/assets/Download.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <script src="src/js/common.js"></script>
+    <script>
+        let lugaresData = [];
+
+        fetch('src/data/lugares.json')
+            .then(response => response.json())
+            .then(data => {
+                lugaresData = data;
+            });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
+            const searchForm = document.querySelector('.search-form');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                if (query.length < 2) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                const filtered = lugaresData.filter(lugar =>
+                    lugar.nombre.toLowerCase().includes(query) ||
+                    lugar.categoria.toLowerCase().includes(query) ||
+                    lugar.descripcion.toLowerCase().includes(query)
+                );
+                displaySearchResults(filtered);
+            });
+
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `src/pages/resultados.html?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            function displaySearchResults(lugares) {
+                searchResults.innerHTML = '';
+                if (lugares.length === 0) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                lugares.forEach(lugar => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    const imgSrc = lugar.imagen.replace('../', 'src/');
+                    div.innerHTML = `
+                        <img src="${imgSrc}" alt="${lugar.nombre}">
+                        <div class="result-text">
+                            <h4>${lugar.nombre}</h4>
+                            <p>${lugar.descripcion}</p>
+                        </div>
+                    `;
+                    div.addEventListener('click', () => {
+                        window.location.href = `src/pages/detalle.html?id=${lugar.id}`;
+                    });
+                    searchResults.appendChild(div);
+                });
+                searchResults.style.display = 'block';
+            }
+        });
+    </script>
 </body>
+
 </html>

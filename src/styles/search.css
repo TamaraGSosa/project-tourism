@@ -1,0 +1,101 @@
+/* CONTENEDOR DEL FORMULARIO DE BÚSQUEDA */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    position: relative;
+}
+
+/* INPUT */
+.search-form input {
+    width: 300px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+/* BOTÓN */
+.search-form button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 0 4px 4px 0;
+
+    background-color: #DF1B1B;
+    color: white;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* CONTENEDOR DE RESULTADOS */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+
+    max-height: 400px;
+    overflow-y: auto;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* CADA ITEM DE RESULTADO */
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #f3f3f3;
+}
+
+/* IMAGEN DENTRO DE LOS RESULTADOS */
+.search-result-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+/* TEXTO DE LOS RESULTADOS */
+.result-text h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.result-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+
