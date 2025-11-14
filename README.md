@@ -1,4 +1,4 @@
-# Conoce Salta — Proyecto de Turismo (HTML • CSS • JS)
+# Yendo Salta — Proyecto de Turismo (HTML • CSS • JS)
 
 **Proyecto demo**: sitio estático que muestra lugares turísticos de la provincia de Salta.  
 Este repositorio es un prototipo educativo — algunos datos son ficticios y sirven para probar diseño y funcionalidades.
