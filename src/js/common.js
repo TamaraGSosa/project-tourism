@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Prefijo obligatorio para GitHub Pages
     const base = "/project-tourism/";
-
-    const isIndex =
-        window.location.pathname === base ||
-        window.location.pathname === base + "index.html";
 
     const navLinks = `
         <a href="${base}src/pages/tips.html">Tips</a>
@@ -42,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ${footerLinks}
     </div>
     <div class="social-icons">
-        <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
-        <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
-        <a href="#" class="fab fa-tiktok" aria-label="TikTok"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-tiktok"></a>
     </div>
 </footer>
 `;
