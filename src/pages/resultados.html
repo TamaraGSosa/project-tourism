@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda - Turismo Argentino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <main>
+        <section id="resultados">
+            
+            <div class="search-container">
+                <form class="search-form">
+                    <label for="search-input" class="sr-only">Buscar destinos en Salta</label>
+                    <input type="text" placeholder="Buscar destinos en Salta..." name="search" id="search-input">
+                    <button type="submit"><i class="fas fa-search"></i> Buscar</button>
+                </form>
+            </div>
+            <div class="resultados-container">
+                <!-- Los resultados se cargarán aquí -->
+            </div>
+        </section>
+    </main>
+    <script src="../js/common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            const searchInput = document.getElementById('search-input');
+            const searchForm = document.querySelector('.search-form');
+
+            if (query) {
+                searchInput.value = query;
+                fetch('../data/lugares.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const filtered = data.filter(lugar =>
+                            lugar.nombre.toLowerCase().includes(query.toLowerCase()) ||
+                            lugar.categoria.toLowerCase().includes(query.toLowerCase()) ||
+                            lugar.descripcion.toLowerCase().includes(query.toLowerCase())
+                        );
+                        displayResults(filtered);
+                    });
+            }
+
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newQuery = searchInput.value.trim();
+                if (newQuery) {
+                    window.location.href = `resultados.html?q=${encodeURIComponent(newQuery)}`;
+                }
+            });
+        });
+
+        function displayResults(lugares) {
+            const container = document.querySelector('.resultados-container');
+            lugares.forEach(lugar => {
+                const div = document.createElement('div');
+                div.className = 'resultado-tarjeta';
+                div.innerHTML = `
+                    <img src="${lugar.imagen}" alt="${lugar.nombre}">
+                    <h4>${lugar.nombre}</h4>
+                    <p>${lugar.descripcion}</p>
+                    <button onclick="viewDetail(${lugar.id})">Ver Detalle</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function viewDetail(id) {
+            window.location.href = `detalle.html?id=${id}`;
+        }
+    </script>
+</body>
+</html>

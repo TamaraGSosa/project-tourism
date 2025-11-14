@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cerro Uritorco",
+        "descripcion": "Místico cerro con leyendas y vistas panorámicas.",
+        "categoria": "cerro",
+        "imagen": "../assets/image.jpg",
+        "detalle": "El Cerro Uritorco es un lugar sagrado para los pueblos originarios, con una altura de 1949 metros. Ofrece senderos para trekking y camping."
+    },
+    {
+        "id": 2,
+        "nombre": "Cafayate",
+        "descripcion": "Pueblo famoso por sus vinos y bodegas.",
+        "categoria": "lugar",
+        "imagen": "../assets/IMG.png",
+        "detalle": "Cafayate es conocido por su producción de vino torrontés y sus paisajes desérticos. Ideal para enoturismo."
+    },
+    {
+        "id": 3,
+        "nombre": "Camping Los Cardones",
+        "descripcion": "Área de camping rodeada de cardones y montañas.",
+        "categoria": "camping",
+        "imagen": "../assets/IMG2.png",
+        "detalle": "Ubicado en la Quebrada de Humahuaca, ofrece espacios para acampar con vistas espectaculares y acceso a senderos."
+    },
+    {
+        "id": 4,
+        "nombre": "Cerro de los Siete Colores",
+        "descripcion": "Cerro con capas de colores vibrantes.",
+        "categoria": "cerro",
+        "imagen": "../assets/IMG3.png",
+        "detalle": "En Purmamarca, este cerro es famoso por sus estratos geológicos de colores. Punto de partida para excursiones."
+    },
+    {
+        "id": 5,
+        "nombre": "Tilcara",
+        "descripcion": "Pueblo con ruinas precolombinas y cultura andina.",
+        "categoria": "lugar",
+        "imagen": "../assets/portada.jpg",
+        "detalle": "Tilcara alberga el Pucará de Tilcara, una fortaleza precolombina. Centro cultural con mercados y festivales."
+    },
+    {
+        "id": 6,
+        "nombre": "Camping La Quebrada",
+        "descripcion": "Camping en el corazón de la Quebrada de Humahuaca.",
+        "categoria": "camping",
+        "imagen": "../assets/image.jpg",
+        "detalle": "Ofrece comodidades básicas para campistas, con proximidad a sitios históricos y naturales."
+    },
+    {
+        "id": 7,
+        "nombre": "Cerro San Bernardo",
+        "descripcion": "Cerro con vistas a la ciudad de Salta.",
+        "categoria": "cerro",
+        "imagen": "../assets/IMG.png",
+        "detalle": "Desde su cima, se puede ver toda la ciudad de Salta. Popular para caminatas y avistamiento de aves."
+    },
+    {
+        "id": 8,
+        "nombre": "Cachi",
+        "descripcion": "Pueblo colonial con arquitectura histórica.",
+        "categoria": "lugar",
+        "imagen": "../assets/IMG2.png",
+        "detalle": "Cachi es un pueblo pintoresco con calles empedradas, iglesia colonial y alrededores montañosos."
+    },
+    {
+        "id": 9,
+        "nombre": "Camping El Mollar",
+        "descripcion": "Camping en las Yungas, con ríos y selva.",
+        "categoria": "camping",
+        "imagen": "../assets/IMG3.png",
+        "detalle": "En las Yungas salteñas, ideal para camping de aventura con pesca y caminatas en la selva."
+    },
+    {
+        "id": 10,
+        "nombre": "Humahuaca",
+        "descripcion": "Cabecera de la Quebrada, con historia y cultura.",
+        "categoria": "lugar",
+        "imagen": "../assets/portada.jpg",
+        "detalle": "Humahuaca es la puerta de entrada a la Quebrada, con su Cabildo histórico y mercados tradicionales."
+    }
+]

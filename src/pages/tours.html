@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours - Turismo Argentino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="lugares-tipicos">
+            <h2>Lugares Típicos de Salta</h2>
+            <div class="lugares-container">
+                <!-- Los lugares se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+    </main>
+    <script src="../js/common.js"></script>
+    <script>
+        fetch('../data/lugares.json')
+            .then(response => response.json())
+            .then(data => {
+                loadRandomLugares(data);
+            });
+
+        function loadRandomLugares(lugaresData) {
+            const container = document.querySelector('.lugares-container');
+            const shuffled = [...lugaresData].sort(() => 0.5 - Math.random());
+            const randomLugares = shuffled.slice(0, 8);
+
+            randomLugares.forEach(lugar => {
+                const div = document.createElement('div');
+                div.className = 'lugar';
+                div.innerHTML = `
+                    <img src="${lugar.imagen}" alt="${lugar.nombre}">
+                    <div class="texto">
+                        <h4>${lugar.nombre}</h4>
+                        <p>${lugar.descripcion}</p>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+    </script>
+</body>
+
+</html>
